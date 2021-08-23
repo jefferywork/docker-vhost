@@ -20,7 +20,7 @@ docker-compose up -d centos7
 # 进入容器
 docker exec -it {container_id} bash
 # 执行初始化安装脚本
-sh /docker-compose/centos_init.sh
+sh /docker-compose/system_init.sh
 # 配置root密码
 passwd root
 ```
@@ -31,7 +31,7 @@ passwd root
 # 进入容器
 docker exec -it {container_id} bash
 # 执行初始化安装脚本
-sh /docker-compose/ubuntu_init.sh
+sh /docker-compose/system_init.sh
 # 将 PermitRootLogin 的值从 withoutPassword 改为yes 允许root登陆
 vi /etc/ssh/sshd_config
 # 重启动ssh服务 
