@@ -1,7 +1,9 @@
 version: "3.8"
 
 services:
+  # -----------------------------------
   # CentOS-7 配置
+  # -----------------------------------
   centos7:
     image: centos:7
     container_name: ${CENTOS7_NAME}
@@ -18,7 +20,9 @@ services:
     restart: always
     privileged: true
 
+  # -----------------------------------
   # Ubuntu-20 配置
+  # -----------------------------------
   ubuntu20:
     image: ubuntu:20.10
     container_name: ${UBUNTU20_NAME}
@@ -40,5 +44,5 @@ services:
 # 网络配置
 networks:
     vhost-net:
-       driver: bridge
+       driver: bridge # 使用默认的 bridge 网卡
   
