@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  # CentOS-7 配置
+  centos7:
+    image: centos:7
+    container_name: ${CENTOS7_NAME}
+    ports:
+        - "${CENTOS7_PORT}:22"
+    volumes:
+        - ${CENTOS7_HOME}:/home # 数据配置
+        - ./docker-compose/centos:/docker-compose # 系统配置
+    working_dir: /home
+    networks:
+        - vhost-net
+    command: 
+        - "init"
+    restart: always
+    privileged: true
+
+  # Ubuntu-20 配置
+  ubuntu20:
+    image: ubuntu:20.10
+    container_name: ${UBUNTU20_NAME}
+    ports:
+        - "6666:6666"
+        - 0.0.0.0:2023:22
+    volumes:
+        - ${UBUNTU20_HOME}:/home # 数据配置
+        - ./docker-compose/ubuntu:/docker-compose # 系统配置
+    working_dir: /home
+    networks:
+        - vhost-net
+    command: 
+        - "bash"
+    restart: always
+    privileged: true
+
+# 网络配置
+networks:
+    vhost-net:
+       driver: bridge
+  
