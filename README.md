@@ -12,7 +12,9 @@ docker-compose up -d
 docker-compose up -d centos7
 ```
 
-### xshell工具连接虚拟主机
+### 首次进入
+
+首次进入，你需要安装某些依赖软件，这样可以让你更好的体验容器服务。请执行以来操作完成以来安装。
 
 #### CentOS-7
 
@@ -40,7 +42,18 @@ service ssh restart
 passwd root
 ```
 
+### xshell工具连接虚拟主机
+
+当你使用 ssh 工具连接服务的时候，使用的连接信息如下
+
+- IP：127.0.0.1
+- Port：你映射的端口
+- username：root
+- password：你配置的密码
+
 ## docker run 命令生成容器
+
+如果你觉得用 `docker-compose` 管理服务容器有诸多不便，你也可以考虑用 `docker run` 去管理你的服务容器
 
 ### CentOS-7
 
